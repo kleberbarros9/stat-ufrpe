@@ -1,0 +1,23 @@
+/* animations.css */
+@keyframes rotateIn {
+    0% {
+        transform: rotateY(0deg);
+    }
+    100% {
+        transform: rotateY(-90deg);
+    }
+}
+
+.formula {
+    transition: transform 1s ease-in-out;
+}
+
+/* Adicione uma classe para a fórmula na posição vertical */
+.vertical {
+    transform: rotateY(-90deg);
+}
+
+/* Adicione animação específica para a transição da horizontal para a vertical */
+.horizontal.vertical {
+    animation: rotateIn 1s ease-in-out;
+}

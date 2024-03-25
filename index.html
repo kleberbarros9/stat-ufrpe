@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js - Math Plugin</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="../css/styles.css">
+		<link rel="stylesheet" href="../dist/reveal.css">
+		<link rel="stylesheet" href="../dist/theme/night.css" id="theme">
+		<link rel="stylesheet" href="/node_modules/animate.css/animate.min.css"/>
+	
+		<style>
+			#circle {
+			  width: 100px;
+			  height: 100px;
+			  background-color: red;
+			  border-radius: 50%;
+			  position: absolute;
+			}
+		  </style>
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+
+				<section>
+					<h2>reveal.js Math Plugin</h2>
+					<p>Render math with KaTeX, MathJax 2 or MathJax 3</p>
+
+					<div id="circle"></div>
+				</section>
+
+
+				<section>
+					<section data-auto-animate>
+						<h3 class="animate__animated animate__bounce">An animated element</h3>
+						\[P(E)   = {n \choose k} p^k (1-p)^{ n-k} \]
+					</section>
+	
+					<section data-auto-animate>
+						\[y = ax^2 + bx + c\]
+						\[P(E)   = {n \choose k} p^k (1-p)^{ n-k} \]
+					</section>
+				</section>
+
+
+				
+
+			</div>
+
+		</div>
+
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+		<script>
+		  // Selecionando o elemento do círculo
+		  const circle = document.getElementById('circle');
+	  
+		  // Criando a animação
+		  anime({
+			targets: '#circle',
+			translateX: [
+			  { value: 0, duration: 1000, easing: 'easeInOutQuad' },
+			  { value: 200, duration: 1000, easing: 'easeInOutQuad' },
+			  { value: 0, duration: 1000, easing: 'easeInOutQuad' }
+			],
+			loop: true
+		  });
+		</script>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../plugin/math/math.js"></script>
+		<script>
+			Reveal.initialize({
+				history: true,
+				transition: 'linear',
+				animation: false,
+
+				mathjax2: {
+					config: 'TeX-AMS_HTML-full',
+					TeX: {
+						Macros: {
+							R: '\\mathbb{R}',
+							set: [ '\\left\\{#1 \\; ; \\; #2\\right\\}', 2 ]
+						}
+					}
+				},
+
+				// There are three typesetters available
+				// RevealMath.MathJax2 (default)
+				// RevealMath.MathJax3
+				// RevealMath.KaTeX
+				//
+				// More info at https://revealjs.com/math/
+				plugins: [ RevealMath.MathJax2 ]
+			});
+		</script>
+
+	</body>
+</html>
